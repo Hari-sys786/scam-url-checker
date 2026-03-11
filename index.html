@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScamCheck — Is This Link Safe?</title>
+    <meta name="description" content="Free URL safety checker. Paste any link and instantly find out if it's safe, suspicious, or a scam. No login required.">
+    <meta name="keywords" content="scam checker, URL safety, phishing detection, link checker, is this link safe">
+    <meta property="og:title" content="ScamCheck — Is This Link Safe?">
+    <meta property="og:description" content="Paste any link. Get an instant safety verdict in plain English.">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">🛡️</div>
+            <h1>ScamCheck</h1>
+            <p class="tagline">Paste any link. Find out if it's safe — in plain English.</p>
+        </header>
+
+        <main>
+            <div class="input-group">
+                <input 
+                    type="text" 
+                    id="url-input" 
+                    placeholder="Paste a suspicious link here..."
+                    autocomplete="off"
+                    spellcheck="false"
+                    aria-label="URL to check"
+                >
+                <button id="check-btn" onclick="checkURL()">
+                    <span class="btn-text">Check this link</span>
+                    <span class="btn-loading" hidden>
+                        <span class="spinner"></span> Checking...
+                    </span>
+                </button>
+            </div>
+
+            <div id="result-card" class="result-card" hidden>
+                <div class="verdict-badge" id="verdict-badge">
+                    <span class="verdict-icon" id="verdict-icon"></span>
+                    <span class="verdict-text" id="verdict-text"></span>
+                </div>
+                <p class="verdict-reason" id="verdict-reason"></p>
+                <div class="checks-summary" id="checks-summary"></div>
+                <details class="how-we-checked">
+                    <summary>How we checked</summary>
+                    <div id="check-details"></div>
+                </details>
+            </div>
+
+            <div id="error-msg" class="error-msg" hidden></div>
+        </main>
+
+        <footer>
+            <p>Free & open source. No data stored. No login needed.</p>
+            <p class="footer-links">
+                <a href="https://github.com/panda-dev/scam-url-checker" target="_blank" rel="noopener">GitHub</a>
+                <span class="sep">·</span>
+                <a href="#how-it-works" id="how-link">How it works</a>
+            </p>
+            <div id="how-it-works" class="how-section" hidden>
+                <h3>How ScamCheck works</h3>
+                <ol>
+                    <li><strong>Local heuristics</strong> — checks domain age signals, suspicious TLDs, IP-based URLs, excessive subdomains, and known scam keyword patterns</li>
+                    <li><strong>Google Safe Browsing</strong> — queries Google's threat database for known phishing, malware, and social engineering URLs</li>
+                    <li><strong>VirusTotal</strong> — cross-references 70+ security vendors for additional threat intelligence</li>
+                </ol>
+                <p>All three signals are combined into a single verdict. If external APIs are unavailable, heuristics alone are used with a notice.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="checker.js"></script>
+    <script>
+        document.getElementById('how-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            const section = document.getElementById('how-it-works');
+            section.hidden = !section.hidden;
+            section.scrollIntoView({ behavior: 'smooth' });
+        });
+
+        document.getElementById('url-input').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') checkURL();
+        });
+    </script>
+</body>
+</html>

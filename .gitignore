@@ -1,0 +1,13 @@
+# API keys (if using a separate local config)
+config.local.js
+.env
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+*.swp
+*.swo
+.vscode/
+.idea/
