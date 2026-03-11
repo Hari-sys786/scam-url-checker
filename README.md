@@ -1,6 +1,6 @@
 # 🛡️ ScamCheck — Is This Link Safe?
 
-[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE) [![GitHub Pages](https://img.shields.io/badge/demo-live-green.svg)](https://panda-dev.github.io/scam-url-checker/)
+[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE) [![GitHub Pages](https://img.shields.io/badge/demo-live-green.svg)](https://hari-sys786.github.io/scam-url-checker/)
 
 **Free, no-login web app that tells you if a link is safe or dangerous — in plain English.** Paste any suspicious URL and get an instant SAFE / SUSPICIOUS / DANGEROUS verdict with a clear explanation anyone can understand.
 
@@ -16,7 +16,7 @@ All signals are combined into a single color-coded verdict. If APIs are unavaila
 
 ## Setup
 
-1. Clone: `git clone https://github.com/panda-dev/scam-url-checker.git`
+1. Clone: `git clone https://github.com/Hari-sys786/scam-url-checker.git`
 2. Open `index.html` in your browser — works immediately with heuristic checks
 3. *(Optional)* Add API keys in `config.js` for enhanced checking:
    - [Google Safe Browsing](https://console.cloud.google.com/apis/library/safebrowsing.googleapis.com) — free, 10K requests/day
